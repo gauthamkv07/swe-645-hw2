@@ -30,7 +30,7 @@ pipeline {
                 }
             }
         }
-        stage("Pushing Image to DockerHub"){
+        stage("Deploying to Rancher as with load balancer"){
             steps {
                 script {
                     sh 'kubectl set image deployment/pipeline stusurvey-pipeline=kvmass/stusurvey:${BUILD_TIMESTAMP} -n jenkins-pipeline'
