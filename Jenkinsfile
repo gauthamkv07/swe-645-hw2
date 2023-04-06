@@ -14,22 +14,6 @@ pipeline{
                 }
             }
         }
-        stage("BUILD DOCKER") {
-            steps {
-                script {
-                    dockerImageBuild = docker.build registry + ":latest"
-                }
-            }
-        }
-        stage("DEPLOY DOCKER") {
-            steps {
-                script {
-                    docker.withRegistry('', registryCredential) {
-                        dockerImageBuild.push()
-                    }
-                }
-            }
-        }
     }
     // stages {
     //     stage("Build the image") {
