@@ -25,10 +25,9 @@ pipeline{
         stage("deploy docker") {
             steps {
                 script {
-                    'docker push kvmass/stusurvey:latest'
-                    // docker.withRegistry('', registryCredential) {
-                    //     dockerImageBuild.push()
-                    // }
+                    docker.withRegistry('', registryCredential) {
+                        dockerImageBuild.push()
+                    }
                 }
             }
         }
