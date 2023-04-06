@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="index.style.css">
+    <!-- <link rel="stylesheet" href="qfc-light.css"> -->
+
+</head>
+
+<body>
+    <div class="qfc-container">
+	<!-- surveay heading -->
+        <h2>Student survey form</h2>
+        <label>The student survey to analyse students perspective in GMU.</label>
+        <form>
+		<!-- text box for the input -->
+            <div>
+                <div>
+                    <input placeholder="First Name" type="text" required>
+                </div>
+                <div>
+                    <input placeholder="Last Name" type="text" required>
+                </div>
+                <div>
+                    <input placeholder="Street Address" type="text" required>
+                </div>
+                <div>
+                    <input placeholder="City" type="text" required>
+                </div>
+                <div>
+                    <input placeholder="State" type="text" required>
+                </div>
+                <div>
+                    <input placeholder="zip code" type="number" required>
+                </div>
+                <div>
+                    <input placeholder="Telephone Number" type="tel" required>
+                </div>
+                <div>
+                    <input placeholder="Email Address" type="email" required>
+                </div>
+                <div>
+                    <input placeholder="Date of Survey" type="date" required>
+                </div>
+				<!-- checkbox section -->
+                <div class="check-campus">
+                    <label>What do you like most in the campus?</label><br>
+                    <input type="checkbox" id="students" name="students" value="students">
+                    <label for="students"> students</label><br>
+                    <input type="checkbox" id="location" name="location" value="location">
+                    <label for="location"> location</label><br>
+                    <input type="checkbox" id="campus" name="campus" value="campus">
+                    <label for="campus"> campus</label><br>
+                    <input type="checkbox" id="atmosphere" name="atmosphere" value="atmosphere">
+                    <label for="atmosphere"> atmosphere</label><br>
+                    <input type="checkbox" id="dorm rooms" name="dorm rooms" value="dorm rooms">
+                    <label for="dorm rooms"> dorm rooms</label><br>
+                    <input type="checkbox" id="sports" name="sports" value="sports">
+                    <label for="sports"> sports</label><br>
+                </div>
+
+				<!-- radio button -->
+                <div class="radio-campus">
+                    <label>What excited you in the University?</label>
+                    <div>
+                        <label>
+                            <input type="radio" name="set_1" checked="checked">Friends
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="radio" name="set_1">Television
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="radio" name="set_1">Internet
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="radio" name="set_1">Other
+                        </label>
+                    </div>
+                </div>
+
+				<!-- dropdown box -->
+                <div>
+                    <label>How likely do you recommend this school to other prospective students?</label>
+                    <select id>
+                        <option disabled selected value="--">Select Your Option</option>
+                        <option value="very likely">Very Likely</option>
+                        <option value="likely">Likely</option>
+                        <option value="unlikely">Unlikely</option>
+                    </select>
+                </div>
+				
+				<!-- text box with rules -->
+                <div>
+                    <label>Enter 10 comma separated number 1 through 100 for raffle</label>
+                    <input placeholder="Example: 1,20,15,16,3,12,100,11,5,89" type="text" required>
+                </div>
+                <!-- text area -->
+                <div>
+                    <label>Additional Comments</label>
+                    <div>
+                        <textarea placeholder="Eg. Enter your comments here"></textarea>
+                    </div>
+                </div>
+				
+				<!-- submit and cancel buttons-->
+                <div>
+                    <button type="submit">Submit</button>
+                    <button type="reset">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
