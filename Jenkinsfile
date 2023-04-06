@@ -9,7 +9,7 @@ pipeline{
             steps {
                 script {
                     checkout scm
-                    'del form.war'
+                    cm = del form.war
                     'jar -cvf form.war *'
                     'docker login -u kvmass -p Herndon@123'
                 }
