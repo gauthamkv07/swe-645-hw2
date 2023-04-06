@@ -19,13 +19,14 @@ pipeline{
             steps {
                 script {
                     'docker build -t kvmass/stusurvey .'
+                    'docker tag kvmass/stusurvey:${currentBuild.startTimeInMillis}'
                 }
             }
         }
         stage("push docker image") {
             steps {
                 script {
-                    'docker push kvmass/stusurvey:latest'
+                    'docker push kvmass/stusurvey:${currentBuild.startTimeInMillis}'
                 }
             }
         }
