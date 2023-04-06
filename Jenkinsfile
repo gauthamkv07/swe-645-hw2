@@ -33,7 +33,7 @@ pipeline{
         }
         stage("Deploying to first pod"){
             steps{
-                bat "kubectl set image deployment/kvmass/stusurvey kvmass/stusurvey=kvmass/stusurvey:latest"
+                bat "kubectl set image deployment/$registry stusurvey=kvmass/stusurvey:latest"
             }
         }
     }
