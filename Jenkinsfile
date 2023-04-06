@@ -3,6 +3,9 @@ pipeline{
     environment {
         DOCKERHUB_PASSWORD = "Herndon@123"
     }
+    stages{
+        
+    }
     // stages {
     //     stage("Build the image") {
     //         steps {
