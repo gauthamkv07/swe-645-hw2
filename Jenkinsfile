@@ -11,7 +11,7 @@ pipeline{
                     checkout scm
                     'del form.war'
                     'jar -cvf form.war *'
-                    echo "TimeStamp: ${currentBuild.startTimeInMillis}"
+                    'docker login -u kvmass -p Herndon@123'
                 }
             }
         }
