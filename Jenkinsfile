@@ -24,7 +24,7 @@ pipeline{
         stage("push docker image") {
             steps {
                 script {
-                    'docker push kvmass/stusurvey'
+                    'docker push kvmass/stusurvey:latest'
                 }
             }
         }
