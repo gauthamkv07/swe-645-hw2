@@ -15,6 +15,7 @@ pipeline{
                     def customImage = docker.build{'kvmass/stusurvey'}
                 }
             }
+        }
     }
     // stages {
     //     stage("Build the image") {
