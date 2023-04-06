@@ -1,9 +1,9 @@
 pipeline{
     agent any
-    // environment {
-        // registryCredential = 'dockerhub'
-        // registry = 'kvmass/stusurvey'
-    // }
+    environment {
+        registryCredential = 'dockerhub'
+        registry = 'kvmass/stusurvey'
+    }
     stages{
         stage("Build the image") {
             steps {
