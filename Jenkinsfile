@@ -14,6 +14,13 @@ pipeline{
                 }
             }
         }
+        stage("build docker") {
+            steps {
+                script {
+                    dockerImageBuild = docker.build registry + ":latest"
+                }
+            }
+        }
     }
     // stages {
     //     stage("Build the image") {
