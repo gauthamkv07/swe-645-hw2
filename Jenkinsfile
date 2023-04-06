@@ -1,4 +1,4 @@
-pipe
+pipeline{
     agent any
     environment {
         DOCKERHUB_PASSWORD = "G@ngnum012"
