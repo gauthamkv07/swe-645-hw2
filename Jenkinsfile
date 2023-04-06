@@ -11,6 +11,7 @@ pipeline{
                     checkout scm
                     'del form.war'
                     'jar -cvf form.war *'
+                    echo "TimeStamp: ${currentBuild.startTimeInMillis}"
                 }
             }
         }
