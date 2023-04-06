@@ -4,7 +4,17 @@ pipeline{
         DOCKERHUB_PASSWORD = "Herndon@123"
     }
     stages{
-        
+        stage("Build the image") {
+            steps {
+                script {
+                    checkout scm
+                    sh 'rm -rf *.war'
+                    sh 'jar -cvf form.war *'
+                    sh 'echo $(BUILD_TIMESTAMP)'
+                    sh 'docker login -u kvmass ${DOCKERHUB_PASSWORD}'
+                    def customImage = docker.build{'kvmass/stusurvey'}
+                }
+            }
     }
     // stages {
     //     stage("Build the image") {
