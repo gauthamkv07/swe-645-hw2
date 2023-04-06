@@ -33,7 +33,7 @@ pipeline{
         }
         stage("Deploying to first pod"){
             steps{
-                bat "kubectl set image deployment/hw2-645-swe hw2-645-swe=kvmass/stusurvey:latest"
+                bat "kubectl set image deployment/kvmass/stusurvey kvmass/stusurvey=kvmass/stusurvey:latest"
             }
         }
     }
