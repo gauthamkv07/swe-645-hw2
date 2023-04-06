@@ -17,7 +17,14 @@ pipeline{
         stage("build docker") {
             steps {
                 script {
-                    dockerImageBuild = docker.build registry + ":latest"
+                    'docker build -t kvmass\stusurvey .'
+                }
+            }
+        }
+        stage("push docker image") {
+            steps {
+                script {
+                    'docker image push kvmass\stusurvey'
                 }
             }
         }
