@@ -18,15 +18,16 @@ pipeline{
         stage("build docker") {
             steps {
                 script {
-                    'docker build -t kvmass/stusurvey .'
-                    'docker tag kvmass/stusurvey:${currentBuild.startTimeInMillis}'
+                    dockerImageBuild = docker.build registry + ${currentBuild.startTimeInMillis}
                 }
             }
         }
-        stage("push docker image") {
+        stage("deploy docker") {
             steps {
                 script {
-                    'docker push kvmass/stusurvey:${currentBuild.startTimeInMillis}'
+                    docker.withRegistry('', registryCredential) {
+                        dockerImageBuild.push()
+                    }
                 }
             }
         }
