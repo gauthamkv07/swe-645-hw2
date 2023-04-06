@@ -8,11 +8,11 @@ pipeline{
             steps {
                 script {
                     checkout scm
-                    sh 'rm -rf *.war'
+                    sh 'rm -rf form.war'
                     sh 'jar -cvf form.war *'
-                    sh 'echo $(BUILD_TIMESTAMP)'
-                    sh 'docker login -u kvmass ${DOCKERHUB_PASSWORD}'
-                    def customImage = docker.build{'kvmass/stusurvey'}
+                    // sh 'echo $(BUILD_TIMESTAMP)'
+                    // sh 'docker login -u kvmass ${DOCKERHUB_PASSWORD}'
+                    // def customImage = docker.build{'kvmass/stusurvey'}
                 }
             }
         }
