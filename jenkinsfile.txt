@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_PASSWORD = credentials('docker-pass')
+        DOCKERHUB_PASSWORD = "G@ngnum012"
     }
     stages {
         stage("Build the image") {
