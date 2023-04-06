@@ -23,19 +23,19 @@ pipeline {
                 }
             }
         }
-        stage("Deploying to Rancher"){
-            steps {
-                script {
-                    sh 'kubectl set image deployment/pipeline stusurvey-pipeline=kvmass/stusurvey:${BUILD_TIMESTAMP} -n jenkins-pipeline'
-                }
-            }
-        }
-        stage("Deploying to Rancher as with load balancer"){
-            steps {
-                script {
-                    sh 'kubectl set image deployment/pipeline stusurvey-pipeline=kvmass/stusurvey:${BUILD_TIMESTAMP} -n jenkins-pipeline'
-                }
-            }
-        }
+        // stage("Deploying to Rancher"){
+        //     steps {
+        //         script {
+        //             sh 'kubectl set image deployment/pipeline stusurvey-pipeline=kvmass/stusurvey:${BUILD_TIMESTAMP} -n jenkins-pipeline'
+        //         }
+        //     }
+        // }
+        // stage("Deploying to Rancher as with load balancer"){
+        //     steps {
+        //         script {
+        //             sh 'kubectl set image deployment/pipeline stusurvey-pipeline=kvmass/stusurvey:${BUILD_TIMESTAMP} -n jenkins-pipeline'
+        //         }
+        //     }
+        // }
     }
 }
