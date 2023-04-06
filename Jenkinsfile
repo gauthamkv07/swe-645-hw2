@@ -12,21 +12,20 @@ pipeline{
                     'del form.war'
                     'jar -cvf form.war *'
                     'docker login -u kvmass -p Herndon@123'
-                    cm = docker.build{"kvmass/stusurvey:${currentBuild.startTimeInMillis}"}
                 }
             }
         }
-        // stage("build docker") {
-        //     steps {
-        //         script {
-        //             dockerImageBuild = docker.build registry + ":latest"
-        //         }
-        //     }
-        // }
+        stage("build docker") {
+            steps {
+                script {
+                    dockerImageBuild = docker.build registry + ":latest"
+                }
+            }
+        }
         stage("deploy docker") {
             steps {
                 script {
-                    'docker push kvmass/stusurvey:${currentBuild.startTimeInMillis}'
+                    'docker push kvmass/stusurvey:latest'
                     // docker.withRegistry('', registryCredential) {
                     //     dockerImageBuild.push()
                     // }
