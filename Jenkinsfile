@@ -12,14 +12,14 @@ pipeline{
                     sh 'jar -cvf form.war *'
                     sh 'echo $(BUILD_TIMESTAMP)'
                     sh 'docker login -u kvmass ${DOCKERHUB_PASSWORD}'
-                    def customImage = docker.build{'kvmass/stusurvey:${BUILD_TIMESTAMP}'}
+                    def customImage = docker.build{'kvmass/stusurvey'}
                 }
             }
         }
         stage("Pushing Image to DockerHub"){
             steps {
                 script {
-                    sh 'docker push kvmass/stusurvey:${BUILD_TIMESTAMP}'
+                    sh 'docker push kvmass/stusurvey'
                 }
             }
         }
