@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        registryCredential = 'dockercred'
+        registryCredential = 'dockerhub'
         registry = 'kvmass/stusurvey'
     }
     stages{
