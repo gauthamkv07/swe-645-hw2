@@ -9,9 +9,9 @@ pipeline{
             steps {
                 script {
                     checkout scm
-                    del form.war
-                    'jar -cvf form.war *'
-                    'docker login -u kvmass -p Herndon@123'
+                    bat 'del form.war'
+                    bat 'jar -cvf form.war *'
+                    bat 'docker login -u kvmass -p Herndon@123'
                 }
             }
         }
