@@ -1,7 +1,8 @@
 pipeline{
     agent any
     environment {
-        DOCKERHUB_PASSWORD = "Herndon@123"
+        registryCredential = 'dockercred'
+        registry = 'kvmass/stusurvey'
     }
     stages{
         stage("Build the image") {
@@ -10,6 +11,22 @@ pipeline{
                     checkout scm
                     'del form.war'
                     'jar -cvf form.war *'
+                }
+            }
+        }
+    }
+    stage("BUILD DOCKER") {
+            steps {
+                script {
+                    dockerImageBuild = docker.build registry + ":latest"
+                }
+            }
+        }
+    stage("DEPLOY DOCKER") {
+        steps {
+            script {
+                docker.withRegistry('', registryCredential) {
+                    dockerImageBuild.push()
                 }
             }
         }
