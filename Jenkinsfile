@@ -11,7 +11,6 @@ pipeline{
                     checkout scm
                     'del form.war'
                     'jar -cvf form.war *'
-                    def now = new Date()
                 }
             }
         }
