@@ -18,7 +18,7 @@ pipeline{
         stage("build docker") {
             steps {
                 script {
-                    dockerImageBuild = docker.build registry + ":latestsr"
+                    dockerImageBuild = docker.build registry + ":${BUILD_TIMESTAMP}"
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline{
         }
         stage("Deploying to first pod"){
             steps{
-                bat "kubectl set image deployment/hw2-645-swe container-0=kvmass/stusurvey:latestsr"
+                bat "kubectl set image deployment/hw2-645-swe container-0=kvmass/stusurvey:${BUILD_TIMESTAMP}"
             }
         }
     }
