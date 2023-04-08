@@ -13,7 +13,7 @@ pipeline{
                     checkout scm
                     bat 'del form.war'
                     bat 'jar -cvf form.war *'
-                    bat "docker login -u kvmass -p Herndon@123"
+                    // bat "docker login -u kvmass -p Herndon@123"
                 }
             }
         }
