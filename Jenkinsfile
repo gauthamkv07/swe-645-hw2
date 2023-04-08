@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        TIMESTAMP = "${currentBuild.timestamp}"
+        TIMESTAMP = "${currentBuild.startTimeInMillis}"
         // docker_pass = credentials('dockercred')
         registryCredential = 'dockerhub'
         registry = 'kvmass/stusurvey'
