@@ -2,7 +2,6 @@ pipeline{
     agent any
     environment {
         TIMESTAMP = "${currentBuild.startTimeInMillis}"
-        // docker_pass = credentials('dockercred')
         registryCredential = 'dockerhub'
         registry = 'kvmass/stusurvey'
     }
@@ -13,7 +12,6 @@ pipeline{
                     checkout scm
                     bat 'del form.war'
                     bat 'jar -cvf form.war *'
-                    // bat "docker login -u kvmass -p Herndon@123"
                 }
             }
         }
