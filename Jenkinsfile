@@ -1,24 +1,26 @@
 pipeline{
     agent any
     environment {
+        TIMESTAMP = "${currentBuild.timestamp}"
+        // docker_pass = credentials('dockercred')
         registryCredential = 'dockerhub'
         registry = 'kvmass/stusurvey'
     }
     stages{
-        stage("Build the image") {
+        stage("Build war file") {
             steps {
                 script {
                     checkout scm
                     bat 'del form.war'
                     bat 'jar -cvf form.war *'
-                    bat 'docker login -u kvmass -p Herndon@123'
+                    bat "docker login -u kvmass -p Herndon@123"
                 }
             }
         }
         stage("build docker") {
             steps {
                 script {
-                    dockerImageBuild = docker.build registry + ":gmu"
+                    dockerImageBuild = docker.build registry + ":${env.TIMESTAMP}"
                 }
             }
         }
@@ -31,9 +33,9 @@ pipeline{
                 }
             }
         }
-        stage("Deploying to first pod"){
+        stage("Deploying to  pod"){
             steps{
-                bat "kubectl set image deployment/hw2-645-swe container-0=kvmass/stusurvey:gmu"
+                bat "kubectl set image deployment/hw2-645-swe container-0=kvmass/stusurvey:${env.TIMESTAMP}"
             }
         }
     }
